@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Korean Learning App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    🌸 Korean Learning App 🌸
+  </header>
+
+  <div class="container" id="menu">
+    <h2>Choose a Lesson</h2>
+    <button onclick="startLesson('alphabet')">Hangul Alphabet</button>
+    <button onclick="startLesson('vocab')">Basic Vocabulary</button>
+    <button onclick="startLesson('phrases')">Common Phrases</button>
+    <div class="xp-bar"><div class="xp-fill" id="xpFill"></div></div>
+    <p>XP: <span id="xp">0</span></p>
+  </div>
+
+  <div class="container hidden" id="lesson">
+    <h2 id="lessonTitle"></h2>
+    <p id="question"></p>
+    <div id="options"></div>
+    <p id="feedback"></p>
+    <button onclick="backToMenu()">⬅ Back to Menu</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
