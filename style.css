@@ -1,65 +1,87 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ffc1e3, #ff99cc);
-  margin: 0;
-  padding: 0;
-  color: #333;
-  text-align: center;
+/* css/style.css - responsive shared styles (pink theme) */
+:root{
+  --pink-100:#fff6fb;
+  --pink-200:#ffd6ec;
+  --pink-300:#ffb6d9;
+  --pink-400:#ff9ac5;
+  --accent:#d14b87;
+  --muted:#7a4a66;
+  --card-shadow: 0 8px 20px rgba(17,6,17,0.06);
+  --max-width:1100px;
 }
-header {
-  background: #ff4d94;
-  color: white;
-  padding: 20px;
-  font-size: 2rem;
-  font-weight: bold;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+
+*{box-sizing:border-box}
+body{font-family: "Poppins", Inter, system-ui, -apple-system, sans-serif; margin:0; color:#2b1725;background:linear-gradient(180deg,var(--pink-200),#ffd1e8)}
+.page-bg{min-height:100vh;padding-bottom:40px}
+
+/* Header */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 28px;background:linear-gradient(180deg,var(--pink-100),#ffe6f7);border-bottom:1px solid rgba(0,0,0,0.03)}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-box{width:64px;height:64px;border-radius:14px;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,0.05)}
+.brand-text h1{margin:0;font-size:24px;color:#2b1725;font-weight:800}
+.subtitle{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+/* top small boxes */
+.top-icons{display:flex;gap:10px}
+.small-box{width:46px;height:46px;background:#fff;border-radius:12px;box-shadow:0 3px 6px rgba(0,0,0,0.03)}
+
+/* Tabs */
+.tabs{display:flex;gap:12px;padding:14px 28px;flex-wrap:wrap}
+.tab{padding:10px 14px;border-radius:12px;background:transparent;border:1px solid rgba(0,0,0,0.03);color:var(--muted);cursor:pointer;font-weight:600}
+.tab.active{background:linear-gradient(180deg,#ff5fa8,#ff4d9c);color:#fff;box-shadow:0 6px 20px rgba(255,75,145,0.12)}
+
+/* Main container */
+.container{max-width:var(--max-width);margin:18px auto;padding:20px}
+
+/* Card base */
+.card{background:linear-gradient(180deg,#fff,#fff6fb);border-radius:14px;padding:18px;margin-bottom:18px;box-shadow:var(--card-shadow)}
+
+/* Categories grid */
+.categories-card h2{font-size:20px;color:#2b1725;margin-bottom:12px}
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.category{background:#fff;padding:14px;border-radius:12px;text-align:left;box-shadow:0 2px 8px rgba(0,0,0,0.03)}
+.category h3{margin:0;color:#2b1725;font-size:16px}
+.muted{color:var(--muted);font-size:13px;margin-top:6px}
+.actions{margin-top:10px;display:flex;gap:10px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700}
+.btn.pink{background:linear-gradient(180deg,#ff5fa8,#ff4d9c);color:white}
+.btn.white{background:#fff;border:1px solid #f0d6e6;color:var(--accent)}
+.btn.outline{background:transparent;border:1px solid #eee;color:var(--accent)}
+.btn.small{padding:8px 12px;border-radius:10px}
+
+/* Quiz preview */
+.quiz-preview .preview-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.progress-right{text-align:right}
+.question-block{background:#fff0f6;padding:14px;border-radius:10px}
+.korean{font-weight:800;color:#6a1b4f;font-size:20px;margin-bottom:10px}
+.choices{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.choice{background:#fff;border-radius:10px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+
+/* Challenge & progress */
+.challenge-buttons{display:flex;gap:12px;margin-top:12px;justify-content:flex-end}
+.two-column{display:flex;justify-content:space-between;align-items:center}
+.progress-card .big{font-size:22px;color:#2b1725;font-weight:800}
+.quick-controls .controls-row{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Footer */
+.footer-note{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;padding:6px 10px}
+
+/* Small screens */
+@media (max-width:1000px){
+  :root{--max-width:900px}
+  .category-grid{grid-template-columns:repeat(2,1fr)}
+  .choices{grid-template-columns:repeat(2,1fr)}
 }
-.container {
-  margin: 20px auto;
-  max-width: 600px;
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+@media (max-width:620px){
+  :root{--max-width:480px}
+  .topbar{padding:16px}
+  .brand-text h1{font-size:20px}
+  .category-grid{grid-template-columns:1fr}
+  .choices{grid-template-columns:1fr}
+  .container{padding:12px}
+  .brand-box{width:54px;height:54px}
+  .small-box{width:40px;height:40px}
 }
-button {
-  background: #ff66a3;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  margin: 10px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: transform 0.2s, background 0.3s;
-}
-button:hover {
-  transform: scale(1.05);
-  background: #ff3385;
-}
-.quiz-option {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-}
-#feedback {
-  margin-top: 15px;
-  font-weight: bold;
-}
-.hidden {
-  display: none;
-}
-.xp-bar {
-  background: #ffe6f2;
-  border-radius: 10px;
-  height: 20px;
-  margin: 10px 0;
-  overflow: hidden;
-}
-.xp-fill {
-  background: #ff4d94;
-  height: 100%;
-  width: 0%;
-  transition: width 0.5s ease-in-out;
-}
+
