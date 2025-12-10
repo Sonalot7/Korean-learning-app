@@ -1,32 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Korean Learning App</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Korebloom — Pro Korean Learning</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    🌸 Korean Learning App 🌸
-  </header>
+  <div class="page-bg">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-box" aria-hidden="true"></div>
+        <div class="brand-text">
+          <h1>Korebloom</h1>
+          <p class="subtitle">Korean learning</p>
+        </div>
+      </div>
 
-  <div class="container" id="menu">
-    <h2>Choose a Lesson</h2>
-    <button onclick="startLesson('alphabet')">Hangul Alphabet</button>
-    <button onclick="startLesson('vocab')">Basic Vocabulary</button>
-    <button onclick="startLesson('phrases')">Common Phrases</button>
-    <div class="xp-bar"><div class="xp-fill" id="xpFill"></div></div>
-    <p>XP: <span id="xp">0</span></p>
+      <div class="top-icons" aria-hidden="true">
+        <div class="small-box"></div>
+        <div class="small-box"></div>
+      </div>
+    </header>
+
+    <nav class="tabs" role="navigation" aria-label="main tabs">
+      <button class="tab active">Learn & Practice</button>
+      <button class="tab">Quick Quiz</button>
+      <button class="tab">Mixed Mode</button>
+      <button class="tab">Review</button>
+    </nav>
+
+    <main class="container">
+      <!-- Categories -->
+      <section class="card categories-card">
+        <h2>Categories</h2>
+        <div class="category-grid">
+          <div class="category">
+            <h3>Hangul (Letters & Vowels)</h3>
+            <p class="muted">36 items — letters & syllables</p>
+            <div class="actions">
+              <a class="btn pink" href="quiz.html?cat=hangul">Start Quiz</a>
+              <a class="btn white" href="hangul.html">Open</a>
+            </div>
+          </div>
+
+          <div class="category">
+            <h3>Numbers (Native & Sino)</h3>
+            <p class="muted">50 items — numbers & readings</p>
+            <div class="actions">
+              <a class="btn pink" href="quiz.html?cat=numbers">Start Quiz</a>
+              <a class="btn white" href="numbers.html">Open</a>
+            </div>
+          </div>
+
+          <div class="category">
+            <h3>Body Parts</h3>
+            <p class="muted">50 items — vocabulary</p>
+            <div class="actions">
+              <a class="btn pink" href="quiz.html?cat=bodyparts">Start Quiz</a>
+              <a class="btn white" href="body.html">Open</a>
+            </div>
+          </div>
+
+          <div class="category">
+            <h3>Travel Phrases</h3>
+            <p class="muted">50 items — useful phrases</p>
+            <div class="actions">
+              <a class="btn pink" href="quiz.html?cat=travel">Start Quiz</a>
+              <a class="btn white" href="travel.html">Open</a>
+            </div>
+          </div>
+
+          <div class="category">
+            <h3>Daily Expressions</h3>
+            <p class="muted">50 items — everyday phrases</p>
+            <div class="actions">
+              <a class="btn pink" href="quiz.html?cat=daily">Start Quiz</a>
+              <a class="btn white" href="daily.html">Open</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quiz preview -->
+      <section class="card quiz-preview">
+        <div class="preview-header">
+          <div>
+            <h4>Today's quick quiz</h4>
+            <p class="muted small">Try a 12-question warmup</p>
+          </div>
+          <div class="progress-right">
+            <span class="muted">Progress</span>
+            <strong>—</strong>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <div class="korean">영수증 주세요</div>
+          <div class="choices demo">
+            <div class="choice">Please make it takeaway</div>
+            <div class="choice">Please give me a receipt</div>
+            <div class="choice">Sorry / Excuse me</div>
+            <div class="choice">Where is the hospital?</div>
+          </div>
+
+          <div class="quiz-controls">
+            <a class="btn outline" href="quiz.html?cat=travel">Open Quiz Page</a>
+            <a class="btn pink" href="quiz.html?cat=travel">Start</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Challenge -->
+      <section class="card challenge-card">
+        <h4>Want a challenge?</h4>
+        <p class="muted">Timed mixed quizzes for speed & retention</p>
+        <div class="challenge-buttons">
+          <a class="btn small pink" href="quiz.html?mode=20timed">20 Q Timed</a>
+          <a class="btn small white" href="quiz.html?mode=40mixed">40 Q Mixed</a>
+        </div>
+      </section>
+
+      <!-- Progress & quick controls -->
+      <section class="card progress-card two-column">
+        <div>
+          <div class="muted">Overall Progress</div>
+          <div class="big">25%</div>
+          <div class="small-muted">Keep steady — 7 day streak</div>
+        </div>
+        <div class="progress-actions">
+          <a class="btn white" href="#">Open Flashcards</a>
+          <a class="btn white" href="#">Review Progress</a>
+        </div>
+      </section>
+
+      <section class="card quick-controls">
+        <h4>Quick Controls</h4>
+        <div class="controls-row">
+          <a class="btn white" href="#">Reset Progress</a>
+          <a class="btn pink" href="#">Shuffle Questions</a>
+          <a class="btn white" href="#">Export</a>
+        </div>
+      </section>
+
+      <footer class="footer-note">
+        <div>Made by Sonal Shaktawat</div>
+      </footer>
+    </main>
   </div>
-
-  <div class="container hidden" id="lesson">
-    <h2 id="lessonTitle"></h2>
-    <p id="question"></p>
-    <div id="options"></div>
-    <p id="feedback"></p>
-    <button onclick="backToMenu()">⬅ Back to Menu</button>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
+
